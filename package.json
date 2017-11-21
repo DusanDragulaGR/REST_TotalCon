@@ -1,0 +1,18 @@
+{
+  "name": "rest_totalcon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "debug.js",
+  "dependencies": {
+    "jsonwebtoken": "^8.1.0",
+    "pg": "^7.4.0",
+    "sqlagent": "^9.9.8",
+    "total.js": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GoodRequest, s.r.o.",
+  "license": "ISC"
+}

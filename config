@@ -1,0 +1,5 @@
+name                            : Total.js
+author                          : REST - TotalCon
+version                         : 1.0.0
+secret                          : secret-key-for-web
+database                        : postgresql://postgres@localhost:5432/rest_totalcon
