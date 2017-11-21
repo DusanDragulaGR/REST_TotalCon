@@ -1,9 +1,9 @@
 exports.install = function() {
-	F.route('/companies', 				getCompanies, 		['authorize',		 				'GET', 		'*Company']);
-	F.route('/companies', 				processScenario,	['authorize',	'#administrator',	'POST', 	'*CompanyCreate']);
-	F.route('/companies/{companyID}',	getCompany,			['authorize', 						'GET', 		'*Company']);
-	F.route('/companies/{companyID}',	processScenario,	['authorize',	'#administrator',	'PUT', 		'*CompanyUpdate']);
-	F.route('/companies/{companyID}',	removeCompany,     	['authorize',	'#administrator',	'DELETE',   '*Company']);
+	F.route('/v0/companies', 				getCompanies, 		['authorize',		 				'GET', 		'*Company']);
+	F.route('/v0/companies', 				processScenario,	['authorize',	'#administrator',	'POST', 	'*CompanyCreate']);
+	F.route('/v0/companies/{companyID}',	getCompany,			['authorize', 						'GET', 		'*Company']);
+	F.route('/v0/companies/{companyID}',	processScenario,	['authorize',	'#administrator',	'PUT', 		'*CompanyUpdate']);
+	F.route('/v0/companies/{companyID}',	removeCompany,     	['authorize',	'#administrator',	'DELETE',   '*Company']);
 };
 
 function getCompanies() {
