@@ -1,0 +1,217 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# REST TotalCon 2017
+
+Simple API demonstration of REST architecture.
+
+## Companies [/v0/companies]
+
+### List all companies [GET]
+
++ Desription
+
+        Load list of all companies.
+        
+        
+        Response HTTP Statuses:
+            
+            200 (OK) - List of companies was successfully loaded
+            401 (UNAUTHORIZED) - Unauthorized access
+            500 (INTERNAL_SERVER_ERROR) - Internal server error occured
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer eyJ1aWQiOjIsImFjdGlvbiI6IlBFUk1BTkVOVF9BUElfVE9LRU4iLCJpYXQiOjE0NzAxNjMwMjZ9!ne1iugj6koyF6Ivl_CmdK5o979iiOyQe8RX-alPUMmw
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Body
+        
+            {
+                "companies": [{
+                    "id": 1,
+                    "name": "Moja Firma",
+                    "ico": "12345678"
+                }]
+            }
+
++ Response 401 (application/json)
++ Response 500 (application/json)
+
+### Create company [POST]
+
++ Description
+
+        Create new company.
+        
+        
+        Response HTTP Statuses:
+            
+            200 (OK) - Company was successfully created
+            400 (BAD_REQUEST) - Parameters in request has incorrect format
+            401 (UNAUTHORIZED) - Unauthorized access
+            403 (FORBIDDEN) - Permissions denied
+            409 (CONFLICT) - Company with specified ICO already exists
+            500 (INTERNAL_SERVER_ERROR) - Internal server error occured
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer eyJ1aWQiOjIsImFjdGlvbiI6IlBFUk1BTkVOVF9BUElfVE9LRU4iLCJpYXQiOjE0NzAxNjMwMjZ9!ne1iugj6koyF6Ivl_CmdK5o979iiOyQe8RX-alPUMmw
+            Accept: application/json
+    
+    + Body
+        
+            {
+                "name": "Moja Firma",
+                "ico": "12345678"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+            
+            {
+                "id": 1
+            }
+
++ Response 400 (application/json)
++ Response 401 (application/json)
++ Response 403 (application/json)
++ Response 409 (application/json)
++ Response 500 (application/json)
+
+## Company [/v0/companies/{companyID}]
+
++ Parameters
+
+    + companyID (string, `1`) ... ID of company
+
+### Get company [GET]
+
++ Description
+
+        Update company.
+        
+        
+        Response HTTP Statuses:
+            
+            200 (OK) - Company was successfully loaded
+            401 (UNAUTHORIZED) - Unauthorized access
+            404 (NOT_FOUND) - Company was not found
+            500 (INTERNAL_SERVER_ERROR) - Internal server error occured
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer eyJ1aWQiOjIsImFjdGlvbiI6IlBFUk1BTkVOVF9BUElfVE9LRU4iLCJpYXQiOjE0NzAxNjMwMjZ9!ne1iugj6koyF6Ivl_CmdK5o979iiOyQe8RX-alPUMmw
+            Accept: application/json
+    
+    + Body
+        
+            {
+                "company": {
+                    "id": 1,
+                    "name": "Moja Firma",
+                    "ico": "12345678"
+                }
+            }
+
++ Response 200 (application/json)
+
+    + Body
+            
+            {
+                "success": true
+            }
+
++ Response 401 (application/json)
++ Response 404 (application/json)
++ Response 500 (application/json)
+
+### Update company [PUT]
+
++ Description
+
+        Update company.
+        
+        
+        Response HTTP Statuses:
+            
+            200 (OK) - Company was successfully updated
+            400 (BAD_REQUEST) - Parameters in request has incorrect format
+            401 (UNAUTHORIZED) - Unauthorized access
+            403 (FORBIDDEN) - Permissions denied
+            404 (NOT_FOUND) - Company was not found
+            409 (CONFLICT) - Company with specified ICO already exists
+            500 (INTERNAL_SERVER_ERROR) - Internal server error occured
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer eyJ1aWQiOjIsImFjdGlvbiI6IlBFUk1BTkVOVF9BUElfVE9LRU4iLCJpYXQiOjE0NzAxNjMwMjZ9!ne1iugj6koyF6Ivl_CmdK5o979iiOyQe8RX-alPUMmw
+            Accept: application/json
+    
+    + Body
+        
+            {
+                "name": "Moja Firma",
+                "ico": "12345678"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+            
+            {
+                "success": true
+            }
+
++ Response 400 (application/json)
++ Response 401 (application/json)
++ Response 403 (application/json)
++ Response 404 (application/json)
++ Response 409 (application/json)
++ Response 500 (application/json)
+
+### Remove company [DELETE]
+
++ Description
+
+        Remove company.
+        
+        
+        Response HTTP Statuses:
+            
+            200 (OK) - Company was successfully removed
+            401 (UNAUTHORIZED) - Unauthorized access
+            403 (FORBIDDEN) - Permissions denied
+            404 (NOT_FOUND) - Company was not found
+            500 (INTERNAL_SERVER_ERROR) - Internal server error occured
+
++ Request (application/json)
+
+    + Headers
+        
+            Authorization: Bearer eyJ1aWQiOjIsImFjdGlvbiI6IlBFUk1BTkVOVF9BUElfVE9LRU4iLCJpYXQiOjE0NzAxNjMwMjZ9!ne1iugj6koyF6Ivl_CmdK5o979iiOyQe8RX-alPUMmw
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Body
+            
+            {
+                "success": true
+            }
+
++ Response 401 (application/json)
++ Response 403 (application/json)
++ Response 404 (application/json)
++ Response 500 (application/json)
